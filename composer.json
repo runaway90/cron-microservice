@@ -1,0 +1,57 @@
+{
+  "name": "choros-microservices/skeleton",
+  "description": "Skeleton of base micro-service app",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Krzysztof Chlistała",
+      "email": "k.chlistala@10ka.pl"
+    }
+  ],
+  "require": {
+    "symfony/symfony": "3.0.*",
+    "sensio/framework-extra-bundle": "^3.0.2",
+    "sensio/distribution-bundle": "~5.0",
+    "incenteev/composer-parameter-handler": "~2.0"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+    ],
+    "post-update-cmd": [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+    ]
+  },
+  "autoload": {
+    "psr-4": { "": "src/" },
+    "classmap": [ "symfony/MicroKernel.php" ]
+  },
+  "config": {
+    "bin-dir": "bin",
+    "platform": {
+      "php": "5.5.9"
+    }
+  },
+  "extra": {
+    "symfony-app-dir": "symfony",
+    "symfony-bin-dir": "bin",
+    "symfony-var-dir": "var",
+    "symfony-web-dir": "public",
+    "symfony-tests-dir": "tests",
+    "symfony-assets-install": "relative",
+    "incenteev-parameters": {
+      "file": "symfony/config/parameters.yml"
+    }
+  }
+}
