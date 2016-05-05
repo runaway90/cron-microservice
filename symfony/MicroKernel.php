@@ -12,15 +12,18 @@ class MicroKernel extends Kernel
 
     public function registerBundles()
     {
-        $bundles = array(
+        $bundles = [
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-        );
+            new Symfony\Bundle\MonologBundle\MonologBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+        ];
 
-        if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
+        if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
-            //$bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new Nelmio\ApiDocBundle\NelmioApiDocBundle();
         }
 
         return $bundles;
@@ -28,12 +31,7 @@ class MicroKernel extends Kernel
 
     protected function configureRoutes(RouteCollectionBuilder $routes)
     {
-        if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
-            $routes->mount('/_wdt', $routes->import('@WebProfilerBundle/Resources/config/routing/wdt.xml'));
-            $routes->mount('/_profiler', $routes->import('@WebProfilerBundle/Resources/config/routing/profiler.xml'));
-        }
-
-        $routes->mount('/', $routes->import('@AppBundle/Controller', 'annotation'));
+        $routes->mount('/', $routes->import(__DIR__.'/config/routing_'.$this->getEnvironment().'.yml'));
     }
 
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader)
