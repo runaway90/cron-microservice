@@ -18,6 +18,8 @@ class MicroKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new FOS\RestBundle\FOSRestBundle(),
+            new League\Tactician\Bundle\TacticianBundle(),
+            new Oneup\FlysystemBundle\OneupFlysystemBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
@@ -31,7 +33,7 @@ class MicroKernel extends Kernel
 
     protected function configureRoutes(RouteCollectionBuilder $routes)
     {
-        $routes->mount('/', $routes->import(__DIR__.'/config/routing_'.$this->getEnvironment().'.yml'));
+        $routes->import(__DIR__.'/config/routing_'.$this->getEnvironment().'.yml');
     }
 
     protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader)
