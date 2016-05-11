@@ -18,8 +18,8 @@ class MicroKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new FOS\RestBundle\FOSRestBundle(),
-            new League\Tactician\Bundle\TacticianBundle(),
-            new Oneup\FlysystemBundle\OneupFlysystemBundle()
+            new Oneup\FlysystemBundle\OneupFlysystemBundle(),
+            new Prooph\InteropBundle\ProophInteropBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

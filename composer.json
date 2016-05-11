@@ -17,8 +17,10 @@
     "incenteev/composer-parameter-handler": "~2.0",
     "friendsofsymfony/rest-bundle": "^1.7",
     "nelmio/api-doc-bundle": "^2.12",
-    "league/tactician": "^1.0",
-    "league/tactician-bundle": "^0.4.1",
+    "prooph/service-bus": "~5.0",
+    "container-interop/container-interop" : "^1.1",
+    "proophsoftware/prooph-interop-bundle": "^0.1",
+    "sandrokeil/interop-config": "^1.0",
     "league/flysystem": "^1.0",
     "oneup/flysystem-bundle": "^1.1"
   },
