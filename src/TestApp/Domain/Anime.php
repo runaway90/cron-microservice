@@ -17,6 +17,11 @@ class Anime
         $this->name = $name;
     }
 
+    public function getName(): Name
+    {
+        return $this->name;
+    }
+
     public function updateDescription(Description $description)
     {
         $this->description = $description;

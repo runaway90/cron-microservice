@@ -22,7 +22,8 @@
     "proophsoftware/prooph-interop-bundle": "^0.1",
     "sandrokeil/interop-config": "^1.0",
     "league/flysystem": "^1.0",
-    "oneup/flysystem-bundle": "^1.1"
+    "oneup/flysystem-bundle": "^1.1",
+    "doctrine/dbal": "v2.5.4"
   },
   "require-dev": {
     "sensio/generator-bundle": "^3.0",

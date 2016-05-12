@@ -24,7 +24,7 @@ interface Storage
      */
     public function fetchBySlug($slug): Anime;
 
-    public function fetchByCriteria($criteria): array;
+    public function fetchByCriteria(Criteria $criteria): array;
 
     public function count();
 }
