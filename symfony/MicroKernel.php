@@ -20,6 +20,8 @@ class MicroKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new Oneup\FlysystemBundle\OneupFlysystemBundle(),
             new Prooph\InteropBundle\ProophInteropBundle(),
+
+            new Choros\UserInterface\Symfony\ChorosBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
