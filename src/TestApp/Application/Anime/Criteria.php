@@ -14,6 +14,8 @@ class Criteria
 
     private $limit = null;
 
+    private $offset = 0;
+
     private $orderBy = [];
 
     private $where = [];
@@ -23,16 +25,36 @@ class Criteria
         $this->limit = $limit;
     }
 
+    public function offset(int $offset = 0)
+    {
+        $this->offset = $offset;
+    }
+
     public function sortBy($field, $order = self::SORT_DESC)
     {
         $this->orderBy[$field] = $order;
     }
 
-    public function name($value, $type = self::WHERE_HAS)
+    public function name($value, $type = self::WHERE_EQUAL)
     {
         $this->where['name'] = [
             'value' => $value,
             'type' => $type
         ];
+    }
+
+    public function getLimit()
+    {
+        return $this->limit;
+    }
+
+    public function getOffset()
+    {
+        return $this->offset;
+    }
+
+    public function getWhereClause()
+    {
+        return $this->where;
     }
 }

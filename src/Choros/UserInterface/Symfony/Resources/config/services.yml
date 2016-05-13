@@ -3,3 +3,9 @@ services:
     class: 'Choros\Infrastructure\Application\CommandBus\ProophAdapter'
     arguments: ["@prooph.service_bus.command_bus"]
 
+  choros.slug:
+    class: 'Choros\Infrastructure\Application\Slug\SlugifyAdapter'
+    arguments: ["@slugify"]
+
+  slugify:
+    class: 'Cocur\Slugify\Slugify'
