@@ -1,0 +1,14 @@
+services:
+  testapp.storage.anime:
+    class: TestApp\Infrastructure\Application\Anime\DBALStorage
+    arguments: ["@database_connection", "@choros.slug"]
+
+  testapp.controllers.anime:
+    class: TestApp\UserInterface\Symfony\Controller\AnimeController
+    arguments: ["@testapp.storage.anime", "@choros.command_bus", "@form.factory"]
+
+  testapp.command_handler.create_new_anime:
+    class: TestApp\Application\Handler\CreateNewAnimeHandler
+    arguments: ["@testapp.storage.anime"]
+    tags:
+      - { name: tactician.handler, command: TestApp\Application\Command\CreateNewAnimeCommand }

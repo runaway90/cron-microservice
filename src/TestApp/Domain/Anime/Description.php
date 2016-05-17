@@ -17,7 +17,7 @@ class Description
     /** @var Content */
     private $content;
 
-    public function __construct(Type $type, Status $status, Content $content)
+    public function __construct(Type $type = null, Status $status = null, Content $content = null)
     {
         $this->type = $type;
         $this->status = $status;

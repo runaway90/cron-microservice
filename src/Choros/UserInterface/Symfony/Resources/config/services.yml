@@ -1,7 +1,7 @@
 services:
   choros.command_bus:
-    class: 'Choros\Infrastructure\Application\CommandBus\ProophAdapter'
-    arguments: ["@prooph.service_bus.command_bus"]
+    class: 'Choros\Infrastructure\Application\CommandBus\TacticianAdapter'
+    arguments: ["@tactician.commandbus"]
 
   choros.slug:
     class: 'Choros\Infrastructure\Application\Slug\SlugifyAdapter'

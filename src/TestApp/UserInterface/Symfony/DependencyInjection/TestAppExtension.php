@@ -1,6 +1,6 @@
 <?php
 
-namespace Choros\UserInterface\Symfony\DependencyInjection;
+namespace TestApp\UserInterface\Symfony\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
 
-class ChorosExtension extends Extension
+class TestAppExtension extends Extension
 {
     /**
      * {@inheritdoc}

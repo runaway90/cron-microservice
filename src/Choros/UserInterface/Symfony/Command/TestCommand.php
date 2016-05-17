@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\VarDumper\VarDumper;
+use TestApp\Application\Command\CreateNewAnimeCommand;
 
 class TestCommand extends ContainerAwareCommand
 {
@@ -33,7 +34,11 @@ class TestCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $commandBus = $this->getContainer()->get('choros.command_bus');
-        //VarDumper::dump($commandBus);
-        //$commandBus->handle();
+
+        $command = new CreateNewAnimeCommand();
+        $command->name = 'TestAnimeName';
+
+        VarDumper::dump($commandBus);
+        $commandBus->handle($command);
     }
 }

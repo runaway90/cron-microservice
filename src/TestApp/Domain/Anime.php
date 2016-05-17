@@ -15,6 +15,7 @@ class Anime
     public function __construct(Name $name)
     {
         $this->name = $name;
+        $this->description = new Description();
     }
 
     public function getName(): Name

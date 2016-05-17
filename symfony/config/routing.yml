@@ -1,0 +1,3 @@
+anime:
+  prefix: /{version}
+  resource: "@TestAppBundle/Resources/config/routing.yml"

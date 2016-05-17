@@ -1,0 +1,9 @@
+anime_list:
+  path: /anime
+  methods: [GET]
+  defaults: { _controller: TestAppBundle:Anime:getList }
+
+create_anime:
+  path: /anime
+  methods: [POST]
+  defaults: { _controller: TestAppBundle:Anime:postAnime }
