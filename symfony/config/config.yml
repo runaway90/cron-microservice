@@ -13,8 +13,8 @@ framework:
     #esi:             ~
     #translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
-    form:            ~
-    csrf_protection: ~
+    form:            true
+    csrf_protection: false
     validation:      { enable_annotations: true }
     serializer:      { enable_annotations: true }
     templating:
@@ -25,13 +25,30 @@ framework:
     session:
         # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
         handler_id:  session.handler.native_file
-        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%/"
     fragments:       ~
     http_method_override: true
     assets: ~
 
 fos_rest:
-    versioning: true
+    param_fetcher_listener: true
+    view:
+        view_response_listener: force
+        formats:
+            xml:  true
+            json: true
+        templating_formats:
+            html: false
+    format_listener:
+        enabled: true
+        rules:
+            - { path: ^/, priorities: [ xml, json ], fallback_format: json, prefer_extension: true }
+    allowed_methods_listener: true
+    access_denied_listener:
+        json: true
+    body_listener: true
+    routing_loader:
+        default_format: json
 
 # Doctrine Configuration
 doctrine:

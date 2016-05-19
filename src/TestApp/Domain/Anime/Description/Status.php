@@ -24,7 +24,7 @@ final class Status
     {
         $stringName = (string)$name;
 
-        return in_array($stringName, self::VALID_STATUSES. true);
+        return in_array($stringName, self::VALID_STATUSES, true);
     }
 
     public function __toString()

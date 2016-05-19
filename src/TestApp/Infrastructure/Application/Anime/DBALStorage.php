@@ -176,5 +176,6 @@ class DBALStorage implements AnimeStorage
     public function __construct(Connection $connection, SlugGenerator $slugGenerator)
     {
         $this->connection = $connection;
+        $this->slugGenerator = $slugGenerator;
     }
 }

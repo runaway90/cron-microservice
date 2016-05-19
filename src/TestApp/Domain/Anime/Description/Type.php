@@ -24,7 +24,7 @@ final class Type
     {
         $stringName = (string)$name;
 
-        return in_array($stringName, self::VALID_TYPES. true);
+        return in_array($stringName, self::VALID_TYPES, true);
     }
 
     public function __toString()
