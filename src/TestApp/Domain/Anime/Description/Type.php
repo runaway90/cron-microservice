@@ -9,9 +9,10 @@ final class Type
 {
     const VALID_TYPES = ['OVA', 'TV', 'Film'];
 
+    /** @var string */
     private $name;
 
-    public function __construct(Name $name)
+    public function __construct(string $name)
     {
         if (!$this->validate($name)) {
             throw new InvalidTypeException(sprintf("Invalid anime type. Valid types: %s", join(", ", self::VALID_TYPES)));
@@ -20,7 +21,7 @@ final class Type
         $this->name = $name;
     }
 
-    private function validate(Name $name)
+    private function validate($name)
     {
         $stringName = (string)$name;
 

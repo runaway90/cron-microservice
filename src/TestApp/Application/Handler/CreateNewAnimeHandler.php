@@ -21,11 +21,8 @@ class CreateNewAnimeHandler
         $animeName = new Name($createNewAnime->name);
         $anime = new Anime($animeName);
 
-        $typeName = new Name($createNewAnime->type);
-        $type = new Type($typeName);
-
-        $statusName = new Name($createNewAnime->status);
-        $status = new Status($statusName);
+        $type = new Type($createNewAnime->type);
+        $status = new Status($createNewAnime->status);
 
         $content = new Content($createNewAnime->content);
         $description = new Description($type, $status, $content);

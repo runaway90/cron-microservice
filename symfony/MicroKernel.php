@@ -21,6 +21,7 @@ class MicroKernel extends Kernel
             new Oneup\FlysystemBundle\OneupFlysystemBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new League\Tactician\Bundle\TacticianBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
 
             new Choros\UserInterface\Symfony\ChorosBundle(),
             new TestApp\UserInterface\Symfony\TestAppBundle()

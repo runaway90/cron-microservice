@@ -159,11 +159,8 @@ class DBALStorage implements AnimeStorage
         $animeName = new Name($animeRow['name']);
         $anime = new Anime($animeName);
 
-        $typeName = new Name($animeRow['type']);
-        $type = new Type($typeName);
-
-        $statusName = new Name($animeRow['status']);
-        $status = new Status($statusName);
+        $type = new Type($animeRow['type']);
+        $status = new Status($animeRow['status']);
 
         $content = new Content($animeRow['description_content']);
         $description = new Description($type, $status, $content);

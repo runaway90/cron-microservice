@@ -11,7 +11,7 @@ final class Status
 
     private $name;
 
-    public function __construct(Name $name)
+    public function __construct(string $name)
     {
         if (!$this->validate($name)) {
             throw new InvalidTypeException(sprintf("Invalid anime status. Valid statuses: %s", join(", ", self::VALID_STATUSES)));
@@ -20,7 +20,7 @@ final class Status
         $this->name = $name;
     }
 
-    private function validate(Name $name)
+    private function validate($name)
     {
         $stringName = (string)$name;
 
