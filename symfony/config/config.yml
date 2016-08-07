@@ -29,27 +29,6 @@ framework:
     fragments:       ~
     http_method_override: true
     assets: ~
-
-fos_rest:
-    param_fetcher_listener: true
-    view:
-        view_response_listener: force
-        formats:
-            xml:  true
-            json: true
-        templating_formats:
-            html: false
-    format_listener:
-        enabled: true
-        rules:
-            - { path: ^/, priorities: [ xml, json ], fallback_format: json, prefer_extension: true }
-    allowed_methods_listener: true
-    access_denied_listener:
-        json: true
-    body_listener: true
-    routing_loader:
-        default_format: json
-
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -69,5 +48,17 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        naming_strategy: doctrine.orm.naming_strategy.underscore
-        auto_mapping: true
+        entity_managers:
+            default:
+                mappings:
+                    cron:
+                        type: xml
+                        prefix: 'Cron\Domain'
+                        dir: "%kernel.root_dir%/../src/Cron/Infrastructure/Job/Doctrine/ORM/Resources/Mapping/"
+                        is_bundle: false
+
+    #orm:
+    #    auto_generate_proxy_classes: "%kernel.debug%"
+    #    naming_strategy: doctrine.orm.naming_strategy.underscore
+    #    auto_mapping: true
+

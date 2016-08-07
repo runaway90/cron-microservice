@@ -1,2 +1,2 @@
-anime:
-  resource: "@TestAppBundle/Resources/config/routing.yml"
+#anime:
+#  resource: "@TestAppBundle/Resources/config/routing.yml"

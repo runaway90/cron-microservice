@@ -1,9 +1,0 @@
-anime_list:
-  path: /anime.{_format}
-  methods: [GET]
-  defaults: { _controller: testapp.controllers.anime:getListAction, _format: ~ }
-
-create_anime:
-  path: /anime.{_format}
-  methods: [POST]
-  defaults: { _controller: testapp.controllers.anime:postAnimeAction }

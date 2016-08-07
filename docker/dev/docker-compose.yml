@@ -1,0 +1,26 @@
+version: '2'
+services:
+    db:
+        container_name: choros-auth-dev-db
+        image: mysql
+        expose:
+            - "3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: symfony
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root
+    web:
+        container_name: choros-auth-dev-web
+        build:
+            context: ../../
+            dockerfile: docker/dev/web/Dockerfile
+        ports:
+            - "5600:80"
+        environment:
+            SYMFONY__DATABASE__HOST: db
+        volumes:
+            - ../../symfony:/app/symfony
+            - ../../src:/app/src
+        links:
+            - db
