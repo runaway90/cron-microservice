@@ -7,12 +7,13 @@ MAINTAINER Krzysztof Chlistała
 ENV WEB_DOCUMENT_INDEX app_dev.php
 ENV WEB_DOCUMENT_ROOT /app/public
 
+COPY docker/dev/web/conf/ /opt/docker/
+
 ADD src /app/src
 ADD bin /app/bin
 ADD public /app/public
 ADD symfony /app/symfony
 ADD composer.json /app/composer.json
-ADD composer.lock /app/composer.lock
 
 RUN apk add --no-cache \
     git \
