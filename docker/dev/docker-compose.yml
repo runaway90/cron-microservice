@@ -16,7 +16,7 @@ services:
             context: ../../
             dockerfile: docker/dev/web/Dockerfile
         ports:
-            - "5600:80"
+            - "5500:80"
         environment:
             DATABASE_HOST: db
             DATABASE_PORT: 3306

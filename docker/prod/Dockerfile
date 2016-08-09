@@ -4,7 +4,7 @@ FROM choros/php-nginx.alpine-3-php7
 # Maintainer
 MAINTAINER Krzysztof Chlistała
 
-ENV WEB_DOCUMENT_INDEX app_dev.php
+ENV WEB_DOCUMENT_INDEX app.php
 ENV WEB_DOCUMENT_ROOT /app/public
 
 COPY docker/dev/web/conf/ /opt/docker/
@@ -25,5 +25,5 @@ RUN apk add --no-cache \
     mkdir var && \
     mkdir var/cache && \
     mkdir var/logs && \
-    composer update && \
+    composer update --no-dev && \
     chmod 777 /app/var -R
