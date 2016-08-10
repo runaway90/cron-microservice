@@ -1,13 +1,14 @@
 # Use Alpine Linux
-FROM choros/php-nginx.alpine-3-php7
+FROM choros/alpine-php-nginx-docker:latest
 
 # Maintainer
 MAINTAINER Krzysztof Chlistała
 
 ENV WEB_DOCUMENT_INDEX app.php
 ENV WEB_DOCUMENT_ROOT /app/public
+ENV SYMFONY_ENV prod
 
-COPY docker/dev/web/conf/ /opt/docker/
+COPY docker/conf/ /opt/docker/
 
 ADD src /app/src
 ADD bin /app/bin
@@ -25,5 +26,5 @@ RUN apk add --no-cache \
     mkdir var && \
     mkdir var/cache && \
     mkdir var/logs && \
-    composer update --no-dev && \
+    composer update -o --no-dev && \
     chmod 777 /app/var -R
