@@ -6,6 +6,7 @@ MAINTAINER Krzysztof Chlistała
 
 ENV WEB_DOCUMENT_INDEX app_dev.php
 ENV WEB_DOCUMENT_ROOT /app/public
+ENV SYMFONY_ENV dev
 
 COPY docker/conf/ /opt/docker/
 

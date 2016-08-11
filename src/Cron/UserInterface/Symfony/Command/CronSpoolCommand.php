@@ -2,7 +2,8 @@
 
 namespace Cron\UserInterface\Symfony\Command;
 
-use Cron\Domain\Jobs;
+use Cron\Application\Domain\Jobs;
+use Cron\Application\Job\Criteria;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -20,6 +21,12 @@ class CronSpoolCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        //$this->jobs->
+        $this->jobs = $this->getContainer()->get('cron.storage.jobs');
+
+        $criteria = new Criteria();
+
+        $jobs = $this->jobs->getByCriteria($criteria);
+
+        var_dump($jobs);
     }
 }

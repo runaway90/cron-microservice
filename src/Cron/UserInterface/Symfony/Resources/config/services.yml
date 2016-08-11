@@ -1,0 +1,4 @@
+services:
+  cron.storage.jobs:
+    class: Cron\Infrastructure\Job\Doctrine\ORM\Domain\Jobs
+    arguments: ['@doctrine.orm.entity_manager']

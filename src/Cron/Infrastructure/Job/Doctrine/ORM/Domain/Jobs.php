@@ -2,10 +2,11 @@
 
 namespace Cron\Infrastructure\Job\Doctrine\ORM\Domain;
 
+use Cron\Application\Job\Criteria;
 use Cron\Domain\Exception\JobNotFoundException;
 use Cron\Domain\Job;
 use Cron\Domain\Job\Url;
-use Cron\Domain\Jobs as JobsInterface;
+use Cron\Application\Domain\Jobs as JobsInterface;
 use Doctrine\ORM\EntityManager;
 
 class Jobs implements JobsInterface
@@ -67,5 +68,13 @@ class Jobs implements JobsInterface
     public function remove(Job $job)
     {
         $this->entityManager->remove($job);
+    }
+
+    public function getByCriteria(Criteria $criteria)
+    {
+        $repository = $this->entityManager->getRepository(Job::class);
+        $jobs = $repository->findBy([], null, $criteria->getLimit(), $criteria->getOffset());
+
+        return $jobs;
     }
 }
