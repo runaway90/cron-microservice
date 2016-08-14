@@ -1,0 +1,9 @@
+create_new_job:
+  path: /jobs
+  methods: [POST]
+  defaults: { _controller: cron.controller:postJobAction }
+
+get_jobs:
+  path: /jobs
+  methods: [GET]
+  defaults: { _controller: cron.controller:getJobsAction }

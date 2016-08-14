@@ -1,0 +1,6 @@
+Cron\Application\Command\CreateNewJobCommand:
+  properties:
+    url:
+      - NotBlank: ~
+    expression:
+      - NotBlank: ~

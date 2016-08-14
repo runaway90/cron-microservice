@@ -39,7 +39,7 @@ class Jobs implements JobsInterface
     public function getByUrl(Url $url): Job
     {
         $job = $this->entityManager->getRepository(Job::class)->findOneBy([
-            'url' => $url
+            'jobUrl.url' => $url
         ]);
 
         if (is_null($job)) {
@@ -56,7 +56,7 @@ class Jobs implements JobsInterface
     public function exists(Url $url): bool
     {
         $job = $this->entityManager->getRepository(Job::class)->findOneBy([
-            'url' => $url
+            'jobUrl.url' => $url
         ]);
 
         return !is_null($job);
@@ -70,10 +70,14 @@ class Jobs implements JobsInterface
         $this->entityManager->remove($job);
     }
 
+    /**
+     * @param Criteria $criteria
+     * @return array|\Cron\Domain\Job[]
+     */
     public function getByCriteria(Criteria $criteria)
     {
         $repository = $this->entityManager->getRepository(Job::class);
-        $jobs = $repository->findBy([], null, $criteria->getLimit(), $criteria->getOffset());
+        $jobs = $repository->findBy($criteria->getConditions(), null, $criteria->getLimit(), $criteria->getOffset());
 
         return $jobs;
     }

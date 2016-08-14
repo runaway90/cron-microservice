@@ -60,4 +60,9 @@ class Job
     {
         return $this->active;
     }
+
+    public function __toString()
+    {
+        return (string)$this->cronExpression.' '.$this->getUrl();
+    }
 }

@@ -2,3 +2,19 @@ services:
   cron.storage.jobs:
     class: Cron\Infrastructure\Job\Doctrine\ORM\Domain\Jobs
     arguments: ['@doctrine.orm.entity_manager']
+
+  cron.controller:
+    class: Cron\UserInterface\Symfony\Controller\JobsController
+    arguments: ['@cron.storage.jobs', '@choros.command_bus', '@form.factory']
+
+  cron.command_handler.new_job:
+    class: Cron\Application\Command\CreateNewJobHandler
+    arguments: ['@cron.storage.jobs', '@choros.command_bus']
+    tags:
+      - { name: tactician.handler, command: Cron\Application\Command\CreateNewJobCommand }
+
+  cron.command_handler.activate_job:
+    class: Cron\Application\Command\ActivateJobHandler
+    arguments: ['@cron.storage.jobs']
+    tags:
+      - { name: tactician.handler, command: Cron\Application\Command\ActivateJobCommand }

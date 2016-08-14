@@ -8,6 +8,8 @@ class Criteria
 
     private $offset = 0;
 
+    private $conditions = [];
+
     public function limit($limit)
     {
         $this->limit = $limit;
@@ -32,5 +34,20 @@ class Criteria
     public function getOffset()
     {
         return $this->offset;
+    }
+
+    public function onlyActive()
+    {
+        $this->conditions['active'] = 1;
+    }
+
+    public function onlyUnactive()
+    {
+        $this->conditions['active'] = 0;
+    }
+    
+    public function getConditions()
+    {
+        return $this->conditions;
     }
 }

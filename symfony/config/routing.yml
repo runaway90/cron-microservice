@@ -1,2 +1,2 @@
-#anime:
-#  resource: "@TestAppBundle/Resources/config/routing.yml"
+cron:
+  resource: "@CronBundle/Resources/config/routing.yml"
