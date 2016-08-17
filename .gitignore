@@ -38,6 +38,7 @@ gen
 /bin/*
 !bin/console
 !bin/symfony_requirements
+!bin/container-startup.php
 
 # Assets and user uploads
 /public/bundles/
