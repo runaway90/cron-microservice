@@ -20,4 +20,8 @@ $process = new Process("php ".dirname(__DIR__).'/bin/console doctrine:schema:upd
 $process->run();
 echo $process->getErrorOutput();
 
+$process = new Process("rm -rf ".dirname(__DIR__).'/var/cache');
+$process->run();
+echo $process->getErrorOutput();
+
 exit;
