@@ -26,6 +26,7 @@ gen
 /var/sessions/*
 !var/logs/.gitkeep
 !var/sessions/.gitkeep
+/var/SymfonyRequirements.php
 
 # Parameters
 /symfony/config/parameters.yml
