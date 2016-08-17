@@ -8,13 +8,13 @@ ENV WEB_DOCUMENT_INDEX app.php
 ENV WEB_DOCUMENT_ROOT /app/public
 ENV SYMFONY_ENV prod
 
-COPY ../conf/ /opt/docker/
+COPY docker/conf/ /opt/docker/
 
-ADD ../../src /app/src
-ADD ../../bin /app/bin
-ADD ../../public /app/public
-ADD ../../symfony /app/symfony
-ADD ../../composer.json /app/composer.json
+ADD src /app/src
+ADD bin /app/bin
+ADD public /app/public
+ADD symfony /app/symfony
+ADD composer.json /app/composer.json
 
 RUN apk add --no-cache \
     git \
