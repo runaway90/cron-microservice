@@ -27,4 +27,5 @@ RUN apk add --no-cache \
     mkdir var/cache && \
     mkdir var/logs && \
     composer update -o --no-dev && \
+    rm /app/symfony/config/parameters.yml && \
     chmod 777 /app/var -R
